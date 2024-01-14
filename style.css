@@ -32,6 +32,7 @@
     right: 25%;
 }
 .enemy-car{
+    background-color: #800000;
     transform: translateX(-50%) rotate(180deg);
 }
 .lines{

@@ -20,6 +20,8 @@ const player = {
 };
 
 const Sound = new Audio("rock-it-21275.mp3");
+Sound.autoplay = true;
+Sound.loop = true;
 
 const keys = {
   ArrowUp: false,
@@ -143,19 +145,19 @@ const moveEnemy = () => {
   enemy.speed = () => {
     const score = player.score;
     switch (true) {
-      case score <= 500:
+      case score <= 250:
         return player.speed - 2;
-      case score <= 1000:
+      case score <= 500:
         return player.speed;
-      case score <= 2000:
+      case score <= 750:
         return player.speed + 1;
-      case score <= 3500:
+      case score <= 1000:
         return player.speed + 2;
-      case score <= 5500:
+      case score <= 1500:
         return player.speed + 4;
-      case score <= 8000:
+      case score <= 2000:
         return player.speed + 6;
-      case score <= 10000:
+      case score <= 3000:
         return player.speed + 9;
       default:
         return player.speed + 12;
