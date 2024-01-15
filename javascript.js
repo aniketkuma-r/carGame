@@ -61,12 +61,10 @@ const handleMusic = () => {
 
 const handleGame = () => {
   if (player.firstGame) {
-    console.log("pehla game hai bhai khelne de");
     player.firstGame = false;
     player.play = true;
     startGame();
   } else if (player.gameOver) {
-    console.log("game khatam ho gya tha");
     restartGame();
   } else {
     togglePlayPause();
