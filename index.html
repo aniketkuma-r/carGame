@@ -2,44 +2,89 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pick a Side</title>
+    <link rel="icon" href="data:image/x-icon;," type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Pick a Side</title>
   </head>
-
   <body>
-    <div class="carGame">
-      <div class="gameArea">
-        <div id="car1" class="car"></div>
-        <div id="car2" class="car"></div>
+    <div class="w-full h-screen" style="background-image: url(static/bg.png)">
+      <!-- game area / entire road  -->
+      <div
+        id="road"
+        class="relative max-w-md w-full h-full m-auto outline-8 outline-solid outline-gray-600 bg-gray-800 overflow-hidden"
+      >
       </div>
-      <div class="score-board">
-        <span>SCORE : </span>
-        &nbsp;
-        <span id="score">0</span>
+
+      <!-- navbar  -->
+      <div
+        class="absolute inset-0 flex justify-between items-center h-16 w-full p-4 z-10"
+      >
+        <!-- score-board -->
+        <div
+          class="bg-amber-300 border-black border-1 w-auto rounded-md p-2 md:p-4 mt-4 md:mt-8"
+        >
+          <h1 class="font-semibold uppercase text-center">
+            score: <span class="score text-xl font-bold">0</span>
+          </h1>
+          <h1 class="font-semibold uppercase text-center">
+            High score: <span id="high-score" class="text-xl font-bold">0</span>
+          </h1>
+        </div>
+
+        <!-- settings -->
+        <div class="flex justify-between items-center gap-3">
+          <button
+            id="audio-btn"
+            class="bg-amber-300 flex justify-between items-center border-black border-1 shadow-xl rounded-lg size-12 p-2 md:p-3 m-auto cursor-pointer"
+          >
+            <i id="icon-audio" class="fas fa-volume-high m-auto md:text-xl"></i>
+          </button>
+          <button
+            id="play-pause-btn"
+            class="bg-amber-300 flex justify-between items-center border-black border-1 shadow-xl rounded-lg size-12 p-2 md:p-3 m-auto cursor-pointer"
+          >
+            <i id="icon-play-pause" class="fas fa-play m-auto md:text-xl"></i>
+          </button>
+        </div>
       </div>
-      <div class="music-icon">
-        <i class="icon-music fas fa-volume-high" onclick="handleMusic()"></i>
-      </div>
-      <div class="play-pause-icon">
-        <i class="icon-play fas fa-pause" onclick="togglePlayPause()"></i>
-      </div>
-      <div class="startScreen">
-        Press "Spacebar" or "Enter" here to start <br />
-        how to play :- <br />
-        <ul style="padding: 15px">
-          <li>Arrow keys to move blue car</li>
-          <li>press 'W , 'A' , 'S' , 'D' to move red car</li>
-          <li>If you hit another car you will lose.</li>
-          <li>PRESS 'm' TO MUTE THE SOUND</li>
-        </ul>
+
+      <!-- game instructions -->
+      <div
+        id="instruction-panel"
+        class="bg-amber-200 absolute inset-0 max-w-lg h-80 p-4 m-auto border-black border-2 cursor-pointer font-semibold capitalize shadow-2xl z-10"
+      >
+        <div id="result-box" class="hidden">
+          <h1
+            class="text-2xl text-center mb-2 text-red-500 font-bold uppercase"
+          >
+            GAME OVER
+          </h1>
+          <h2 class="text-lg text-center mb-4 font-bold uppercase">
+            YOUR FINAL SCORE IS:
+            <span class="score text-xl font-bold">0</span>
+          </h2>
+        </div>
+        <div class="">
+          <h3 class="text-lg text-center mb-4">
+            Press "Spacebar ␣" or "Enter ↵" here to start
+          </h3>
+          <h3 class="underline underline-offset-2">how to play :-</h3>
+          <ul class="p-6 uppercase">
+            <li>press 'W, 'A', 'S', 'D' to move red car</li>
+            <li>press ←, →, ↑, ↓ Arrow keys to move blue car</li>
+            <li>If you hit another car you will lose.</li>
+            <li>PRESS 'm' TO MUTE THE SOUND</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <script src="javascript.js"></script>
+
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>

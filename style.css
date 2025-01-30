@@ -1,122 +1,24 @@
-*{
-    margin :0px;
-    padding :0px;
-    box-sizing: inherit;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.hide{
-    display: none;
-}
-.carGame{
-    background: url(bg.png);
-    width: 100%;
-    height: 100vh;
-}
-.car, .enemy-car{
-    background: url(car.png) no-repeat center center;
+.car, .reverse-car{
+    position: absolute;
+    background: url(static/car.png) no-repeat center center;
     background-size: cover;
     width: 45px;
     height: 85px;
-    position: absolute;
     bottom: 5%;
     border-radius: 19px 19px 14px 13px;
     filter: drop-shadow(5px 5px 10px #222);
+    /* transform: translateX(-50%); */
     z-index: 1;
 }
-#car1{
-    background-color: red;
-    left: 25%;
-}
-#car2{
-    background-color: blue;
-    right: 25%;
-}
-.enemy-car{
+.reverse-car{
     background-color: #800000;
     transform: translateX(-50%) rotate(180deg);
 }
-.lines{
-    width: 10px;
-    height: 100px;
+.road-line{
+    width: 1rem;
+    height: 6rem;
     background-color: white;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-}
-.gameArea{
-    position: relative;
-    max-width: 450px;
-    height: 100vh;
-    background: #2d3436;
-    margin: auto;
-    overflow: hidden;
-    outline: 7px solid #777;
-}
-.score-board{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: rgb(30, 216, 151);
-    padding: 1rem 2rem;
-    max-width: 300px;
-    color: rgb(6, 32, 96);
-    font-size: 1.5em;
-    font-weight: bolder;
-    box-shadow: 0 5px 5px #777;
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-.music-icon , .play-pause-icon{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: rgb(30, 216, 151);
-    padding: 1rem;
-    color: rgb(6, 32, 96);
-    font-size: 1.5em;
-    font-weight: bolder;
-    box-shadow: 0 5px 5px #777;
-    border-radius: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    cursor: pointer;
-}
-.play-pause-icon{
-    right: 80px;
-}
-
-.startScreen{
-    background-color: lightsalmon;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    z-index: 1;
-    border: 1px solid black;
-    padding: 15px;
-    margin: auto;
-    width: 32rem;
-    max-width: 600px;
-    cursor: pointer;
-    letter-spacing: 5;
-    font-size: 1rem;
-    word-spacing: 3;
-    line-height: 30px;
-    text-transform: uppercase;
-    box-shadow: 0 5px 5px #777;
-}
-@media screen and (max-width: 576px){
-    .startScreen{
-        width: 80%;
-    }
-    .play-pause-icon{
-        top: 80px;
-        right: 15px;
-    }
 }
