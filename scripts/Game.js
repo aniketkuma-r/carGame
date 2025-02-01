@@ -14,7 +14,7 @@ const playPauseIcon = document.querySelector("#icon-play-pause");
 export class Game {
   constructor() {
     this.isOn = false;
-    this.finished = false;
+    this.isOver = false;
     this.highScore = 0;
     this.score = 0;
     this.cars = [];
@@ -110,12 +110,13 @@ export class Game {
   }
 
   play() {
-    if (this.finished) {
+    if (this.isOver) {
       this.reset();
-      this.finished = false;
+      this.isOver = false;
     }
     this.isOn = true;
     this.updateIcon();
+    if(this.soundManager.userPreferences.isSoundOn) this.soundManager.play();
     this.instructionPanel.style.display = "none";
     this.resultBox.style.display = "none";
     this.animation();
@@ -126,12 +127,12 @@ export class Game {
     this.isOn = false;
     this.updateIcon();
     this.instructionPanel.style.display = "block";
-    if (this.finished) this.resultBox.style.display = "block";
+    if (this.isOver) this.resultBox.style.display = "block";
     // console.log("pause");
   }
 
   end() {
-    this.finished = true;
+    this.isOver = true;
     this.pause();
   }
 
